@@ -1,21 +1,18 @@
-﻿using static WebProje.Models.context;
+﻿using static WebProje.Models.Context;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
 namespace WebProje.Models
 {
-    public class context:DbContext
+    public class Context:DbContext
     {
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=localhost; user=root; database=Category; password=GOKKAYA52.o; port=3306");
+            optionsBuilder.UseSqlServer("Data Source=DESKTOP-AQGNSHA;Initial Catalog=WebProjeDb;Integrated Security=True");
         }
-        /// <summary>
-        /// eren tetikk
-        /// </summary>
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Urunler> Urunlers { get; set; }
+
+        public DbSet<Duyuru> Duyurus { get; set; }
         public DbSet<AdminUser> AdminUsers { get; set; }
 
     }

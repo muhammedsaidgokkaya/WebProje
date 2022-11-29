@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -9,9 +10,12 @@ using WebProje.Models;
 
 namespace WebProje.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+
+        Context c = new Context();
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -28,6 +32,18 @@ namespace WebProje.Controllers
             return View();
         }
 
+        public IActionResult Kayit()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Kayit(AdminUser form)
+        {
+            c.AdminUsers.Add(form);
+            c.SaveChanges();
+            return RedirectToAction("Index", "Login");
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

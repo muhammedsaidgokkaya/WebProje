@@ -58,34 +58,9 @@
                         <button class="btn btn-default" type="submit"><i class="bx bx-search"></i></button>
                     </div>
                 </form>
-
-                <span class="separator"></span>
-                <ul class="notifications">
-                    <li>
-                        <a href="/Admin/MesajKutusu" class="dropdown-toggle notification-icon">
-                            <i class="bx bx-envelope"></i>
-                        </a>
-                    </li>
-
-                </ul>
                 <span class="separator"></span>
                 <div id="userbox" class="userbox">
-                    <a href="#" data-bs-toggle="dropdown">
-                        <div class="profile-info profile-info-no-role">
-                            @await Component.InvokeAsync("AdminKullaniciAdiListele")
-                        </div>
-                        <i class="fas fa-chevron-down text-color-dark"></i>
-                    </a>
-                    <div class="dropdown-menu">
-                        <ul class="list-unstyled">
-                            <li>
-                                <a role="menuitem" tabindex="-1" href="/Admin/Profilim"><i class="bx bx-user"></i> Profilim</a>
-                            </li>
-                            <li>
-                                <a role="menuitem" tabindex="-1" href="/Giris/LogOut"><i class="bx bx-log-out"></i> Çıkış</a>
-                            </li>
-                        </ul>
-                    </div>
+                    <a role="menuitem" tabindex="-1" href="/Admin/LogOut"><i class="bx bx-log-out"></i> Çıkış</a>
                 </div>
             </div>
             <!-- end: search & user box -->
@@ -110,66 +85,18 @@
                                     </a>
                                 </li>
                                 <li><hr /></li>
-                                <li class="nav-parent">
-                                    <a class="nav-link" href="#">
+                                <li>
+                                    <a class="nav-link" href="/Admin/DuyuruAdd">
                                         <i class="bx bx-layout" aria-hidden="true"></i>
-                                        <span>Blog</span>
+                                        <span>Duyuru Ekle</span>
                                     </a>
-                                    <ul class="nav nav-children">
-                                        <li>
-                                            <a class="nav-link" href="/Admin/Category">
-                                                - Kategoriler
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="nav-link" href="/Admin/CategoryAdd">
-                                                - Kategori Ekle
-                                            </a>
-                                        </li>
-                                    </ul>
                                 </li>
                                 <li><hr /></li>
-                                <li class="nav-parent">
-                                    <a class="nav-link" href="#">
+                                <li>
+                                    <a class="nav-link" href="/Admin/LogOut">
                                         <i class="bx bx-layout" aria-hidden="true"></i>
-                                        <span>Ana Sayfa Düzenleme</span>
+                                        <span>Çıkış Yap</span>
                                     </a>
-                                    <ul class="nav nav-children">
-                                        <li>
-                                            <a class="nav-link" href="/Admin/IletisimBilgileri">
-                                                - İletişim Bilgileri
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="nav-link" href="/Admin/FooterDuzenle">
-                                                - Footer Düzenle
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><hr /></li>
-                                <li class="nav-parent">
-                                    <a class="nav-link" href="#">
-                                        <i class="bx bx-layout" aria-hidden="true"></i>
-                                        <span>Panel</span>
-                                    </a>
-                                    <ul class="nav nav-children">
-                                        <li>
-                                            <a class="nav-link" href="/Admin/MesajKutusu">
-                                                - Destek
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="nav-link" href="/Admin/Profilim">
-                                                - Profilim
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="nav-link" href="/Giris/LogOut">
-                                                - Çıkış Yap
-                                            </a>
-                                        </li>
-                                    </ul>
                                 </li>
                                 <li><hr /></li>
                                 <li>
