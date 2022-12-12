@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using WebProje.Models;
 
@@ -27,9 +29,27 @@ namespace WebProje.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        [HttpPost]
+
+        public async Task<IActionResult> Index(AdminUser ad)
         {
-            return View();
+            var bilgiler = c.AdminUsers.FirstOrDefault(x => x.Email == ad.Email && x.Password == ad.Password);
+            if (bilgiler != null)
+            {
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Name,ad.Email)
+                };
+                var useridentity = new ClaimsIdentity(claims, "a");
+                ClaimsPrincipal principal = new ClaimsPrincipal(useridentity);
+                await HttpContext.SignInAsync(principal);
+                return RedirectToAction("Index", "Admin");
+
+            }
+            else
+            {
+                return View();
+            }
         }
 
         public IActionResult Kayit()

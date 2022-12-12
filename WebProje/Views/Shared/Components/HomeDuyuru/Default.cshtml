@@ -1,0 +1,21 @@
+﻿@model List<WebProje.Models.Duyuru>
+
+<div class="owl-carousel owl-theme">
+    @foreach (var i in Model)
+    {
+        <div class="item">
+            <img src="~/Resimler/DuyuruResim/@i.ResimYol" alt="">
+            <div class="down-content">
+                <h4>@i.Baslik_anasayfa</h4>
+                <h4>@i.Baslik</h4>
+                <p>@i.Aciklama</p>
+                @*<div class="author-image">
+                    <img src="assets/images/author-01.png" alt="Author 1">
+                </div>
+                <div class="text-button-pay">
+                    <a href="#">Pay <i class="fa fa-angle-double-right"></i></a>
+                </div>*@
+            </div>
+        </div>
+    }
+</div>

@@ -2,9 +2,9 @@
 using System.Linq;
 using WebProje.Models;
 
-namespace WebProje.ViewComponents.DuyuruListele
+namespace WebProje.ViewComponents.HomeDuyuru
 {
-    public class DuyuruListele : ViewComponent
+    public class HomeDuyuru : ViewComponent
     {
         public IViewComponentResult Invoke()
         {
